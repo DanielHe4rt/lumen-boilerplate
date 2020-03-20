@@ -1,0 +1,179 @@
+openapi: 3.0.0
+info:
+  title: 'E-School API'
+  contact:
+    email: hey@danielheart.dev
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: 'Autenticação de usuário'
+      operationId: AuthLogin
+      parameters:
+        -
+          name: email
+          in: query
+          description: 'E-mail para autenticação'
+          required: true
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'Senha para autenticação'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  /auth/refresh:
+    post:
+      tags:
+        - auth
+      summary: 'Refresh de token do usuário'
+      operationId: AuthRefresh
+      parameters:
+        -
+          name: refresh_token
+          in: query
+          description: 'Token de atualização'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+  /users:
+    get:
+      tags:
+        - users
+      summary: 'Listagem de usuários com paginação'
+      operationId: GetUsers
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - users
+      summary: 'Criação de novos usuários'
+      operationId: PostUser
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Nome do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: email
+          in: query
+          description: 'E-mail do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'Senha do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: password_confirmation
+          in: query
+          description: 'Confirmação de senha do usuário'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/users/{userId}':
+    get:
+      tags:
+        - users
+      summary: 'Retorna um usuário'
+      operationId: GetUser
+      parameters:
+        -
+          name: userId
+          in: path
+          description: 'Id do usuário a ser pesquisado'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - users
+      summary: 'Edição de um usuário'
+      operationId: putUser
+      parameters:
+        -
+          name: userId
+          in: path
+          description: 'Id do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: name
+          in: query
+          description: 'Nome do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: email
+          in: query
+          description: 'E-mail do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: role
+          in: query
+          description: 'Aluno = 1, Professor = 2'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - users
+      summary: 'Deleta um usuário'
+      operationId: DeleteUser
+      parameters:
+        -
+          name: userId
+          in: path
+          description: 'Id do usuário a ser deletado'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  /:
+    get:
+      description: 'Home page'
+      responses:
+        default:
+          description: 'Welcome page'
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: Authorization
+      in: header

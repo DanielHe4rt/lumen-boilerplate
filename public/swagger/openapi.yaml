@@ -1,0 +1,1953 @@
+openapi: 3.0.0
+info:
+  title: 'My first API'
+  contact:
+    email: support@example.com
+  version: 1.0.0
+paths:
+  /allergens:
+    get:
+      tags:
+        - allergens
+      summary: 'Lista todas os alergênicos'
+      operationId: GetAllergens
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - allergens
+      summary: 'Insere um novo alergênico'
+      operationId: StoreAllergens
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Nome do alergênico'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/allergens/{id}':
+    get:
+      tags:
+        - allergens
+      summary: 'Lista todos os alergênicos'
+      operationId: ShowAllergen
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID do alergênico'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - allergens
+      summary: 'Lista todos os alergênicos'
+      operationId: UpdateAllergen
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do alergênico'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: path
+          description: 'Nome do alergênico'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - allergens
+      summary: 'Lista todos os alergênicos'
+      operationId: DeleteAllergen
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID do alergênico'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: 'Autenticação de usuário'
+      operationId: AuthLogin
+      parameters:
+        -
+          name: email
+          in: query
+          description: 'E-mail para autenticação'
+          required: false
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'Senha para autenticação'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  /brands:
+    get:
+      tags:
+        - brands
+      summary: 'Lista todas as marcas'
+      operationId: GetBrands
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - brands
+      summary: 'Insere uma nova marca'
+      operationId: StoreBrands
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Nome da marca'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/brands/{id}':
+    get:
+      tags:
+        - brands
+      summary: 'Lista todas as marcas'
+      operationId: ShowBrand
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - brands
+      summary: 'Lista todas as marcas'
+      operationId: UpdateBrand
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: path
+          description: 'Nome da marca'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - brands
+      summary: 'Lista todas as marcas'
+      operationId: DeleteBrand
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  /categories:
+    get:
+      tags:
+        - categories
+      summary: 'Lista todas as categorias'
+      operationId: ListCategories
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - categories
+      summary: 'Insere uma nova categoria'
+      operationId: StoreCategory
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Nome da categoria'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/categories/{id}':
+    get:
+      tags:
+        - categories
+      summary: 'Mostra uma categoria'
+      operationId: ShowCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - categories
+      summary: 'Atualiza uma categoria'
+      operationId: UpdateCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome da categoria'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - categories
+      summary: 'Deleta uma categoria'
+      operationId: DeleteCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/categories/{id}/subcategories':
+    get:
+      tags:
+        - categories
+        - subcategories
+      summary: 'Lista todas as subcategorias'
+      operationId: ListSubcategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - categories
+        - subcategories
+      summary: 'Insere uma subcategoria'
+      operationId: StoreSubcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome para a subcategoria'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/categories/{id}/subcategories/{subcategoryId}':
+    get:
+      tags:
+        - categories
+        - subcategories
+      summary: 'Mostra uma subcategoria'
+      operationId: ShowSubategorie
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+        -
+          name: subcategoryId
+          in: path
+          description: 'ID da subcategoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - categories
+        - subcategories
+      summary: 'Atualiza uma subcategoria'
+      operationId: UpdateSubcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+        -
+          name: subcategoryId
+          in: path
+          description: 'ID da categoria a ser editada'
+          required: true
+          schema:
+            type: integer
+        -
+          name: category_id
+          in: query
+          description: 'ID da categoria '
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome para a subcategoria'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - categories
+        - subcategories
+      summary: 'Deleta uma subcategoria'
+      operationId: DeleteSubcategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+        -
+          name: subcategoryId
+          in: path
+          description: 'ID da subcategoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/brands/{brandId}':
+    post:
+      tags:
+        - ingredients
+        - brands
+      summary: 'Vincula uma marca a um ingrediente'
+      operationId: StoreIngredientBrands
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: brandId
+          in: path
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - ingredients
+        - brands
+      summary: 'Desvincula uma marca de um ingrediente'
+      operationId: DeleteIngredientBrands
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: brandId
+          in: path
+          description: 'ID da marca'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/brands':
+    get:
+      tags:
+        - ingredients
+        - brands
+      summary: 'Mostra as marcas vinculadas a um ingrediente'
+      operationId: GetIngredientBrands
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - ingredients
+        - brands
+      summary: 'Vincula várias marcas a um ingrediente'
+      operationId: StoreMultipleIngredientBrands
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Objeto com ids das marcas'
+          required: true
+          schema:
+            type: object
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/categories/{categoryId}':
+    post:
+      tags:
+        - ingredients
+        - categories
+      summary: 'Vincula uma categoria a um ingrediente'
+      operationId: StoreIngredientCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: categoryId
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - ingredients
+        - categories
+      summary: 'Desvincula uma categoria de um ingrediente'
+      operationId: DeleteIngredientCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: categoryId
+          in: path
+          description: 'ID da categoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/categories':
+    post:
+      tags:
+        - ingredients
+        - categories
+      summary: 'Vincula várias categorias a um ingrediente'
+      operationId: StoreMultipleIngredientCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Objeto com todas as categorias a serem vinculadas.'
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/categories/':
+    get:
+      tags:
+        - ingredients
+        - categories
+      summary: 'Mostra todas as categorias atribuidas a um ingrediente'
+      operationId: ShowIngredientCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/subcategories/{subcategoryId}':
+    post:
+      tags:
+        - ingredients
+        - subcategories
+      summary: 'Vincula uma subcategoria a um ingrediente'
+      operationId: StoreIngredientSubcategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: subcategoryId
+          in: path
+          description: 'ID da subcategoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - ingredients
+        - subcategories
+      summary: 'Desvincula uma subcategoria de um ingrediente'
+      operationId: DeleteIngredientSubcategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: subcategoryId
+          in: path
+          description: 'ID da subcategoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/subcategories':
+    post:
+      tags:
+        - ingredients
+        - subcategories
+      summary: 'Vincula várias subcategorias a um ingrediente'
+      operationId: StoreMultipleIngredientSubcategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Objeto com todas as subcategorias a serem vinculadas.'
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/subcategories/':
+    get:
+      tags:
+        - ingredients
+        - subcategories
+      summary: 'Mostra todas as subcategoria atribuidas a um ingrediente'
+      operationId: GetIngredientCategories
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/substitutes/{substituteId}':
+    post:
+      tags:
+        - ingredients
+        - substitutes
+      summary: 'Vincula um ingrediente substituto a um ingrediente'
+      operationId: StoreIngredientSubstitutes
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: substituteId
+          in: path
+          description: 'ID do substituto'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - ingredients
+        - substitutes
+      summary: 'Desvincula um ingrediente substituto a um ingrediente'
+      operationId: RemoveIngredientSubstitute
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: substituteId
+          in: path
+          description: 'ID do substituto'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}/substitutes/':
+    get:
+      tags:
+        - ingredients
+        - substitutes
+      summary: 'Mostra todos ingredientes substitutos vinculados'
+      operationId: GetIngredientSubstitutes
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - ingredients
+        - substitutes
+      summary: 'Vincula várias ingrediente substituto a um ingrediente'
+      operationId: StoreMultipleIngredientSubstitutes
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Objeto com todas as subcategorias a serem vinculadas.'
+          required: true
+          schema:
+            type: object
+      responses:
+        '200':
+          description: ...
+  /ingredients:
+    get:
+      tags:
+        - ingredients
+      summary: 'Lista todos os ingredientes'
+      operationId: GetIngredients
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações'
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - ingredients
+      summary: 'Insere um novo ingrediente'
+      operationId: StoreIngredients
+      parameters:
+        -
+          name: name
+          in: path
+          description: 'Nome do ingrediente'
+          required: true
+          schema:
+            type: string
+        -
+          name: flavor
+          in: path
+          description: 'Gosto no qual o ingrediente se encaixa'
+          required: true
+          schema:
+            type: string
+        -
+          name: characteristics
+          in: path
+          description: 'Array com as caracteristicas do objeto'
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        -
+          name: nicknames
+          in: path
+          description: 'Array com possiveis outros nomes para este ingrediente'
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        -
+          name: strong
+          in: path
+          description: 'Se o ingrediente tem um gosto forte'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: light
+          in: path
+          description: 'Se o ingrediente é light'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: allergen_id
+          in: path
+          description: 'Se o ingrediente é alergenico'
+          required: true
+          schema:
+            type: integer
+        -
+          name: askable
+          in: path
+          description: 'Se o ingrediente é exibio no assistente'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: main_ingredient
+          in: path
+          description: 'É o ingrediente principal da receita?'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: contains_gluten
+          in: path
+          description: 'Se o ingrediente contem gluten'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: subcategory_id
+          in: path
+          description: 'id da subcategoria'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/ingredients/{id}':
+    get:
+      tags:
+        - ingredients
+      summary: 'Mostra um ingrediente'
+      operationId: ShowIngredients
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - ingredients
+      summary: 'Atualiza um ingrediente'
+      operationId: UpdateIngredient
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: path
+          description: 'Nome do ingrediente'
+          required: false
+          schema:
+            type: string
+        -
+          name: flavor
+          in: path
+          description: 'Gosto no qual o ingrediente se encaixa'
+          required: false
+          schema:
+            type: string
+        -
+          name: characteristics
+          in: path
+          description: 'Objeto com as caracteristicas do ingrediente'
+          required: false
+          schema:
+            type: object
+        -
+          name: nicknames
+          in: path
+          description: 'Objeto com possiveis outros nomes para o ingrediente'
+          required: false
+          schema:
+            type: object
+        -
+          name: strong
+          in: path
+          description: 'Se o ingrediente tem um gosto forte'
+          required: false
+          schema:
+            type: boolean
+        -
+          name: light
+          in: path
+          description: 'Se o ingrediente é light'
+          required: false
+          schema:
+            type: boolean
+        -
+          name: allergen_id
+          in: path
+          description: 'Se o ingrediente é alergenico'
+          required: true
+          schema:
+            type: integer
+        -
+          name: askable
+          in: path
+          description: 'Se o ingrediente é exibio no assistente'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: main_ingredient
+          in: path
+          description: 'É o ingrediente principal da receita?'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: contains_gluten
+          in: path
+          description: 'Se o ingrediente contem gluten'
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - ingredients
+      summary: 'Deleta um ingrediente'
+      operationId: DeleteIngredients
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  /measures:
+    get:
+      tags:
+        - measures
+      summary: 'Lista todas as unidades de medida'
+      operationId: ListMeasures
+      responses:
+        '200':
+          description: ...
+  /occasions:
+    get:
+      tags:
+        - occasions
+      summary: 'Lista todos as ocasiões'
+      operationId: ListOccasions
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions':
+    get:
+      tags:
+        - recipes
+        - directions
+      summary: 'Mostra as direções vincula a receita.'
+      operationId: ShowRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do da receita'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - recipes
+        - directions
+      summary: 'Cria uma direção e vincula a receita.'
+      operationId: StoreRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome da direção'
+          required: true
+          schema:
+            type: string
+        -
+          name: order
+          in: query
+          description: 'Numero do passo a ser vinculado'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions/sort':
+    post:
+      tags:
+        - recipes
+        - directions
+      summary: 'Organizas as direções da receita.'
+      operationId: SortRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: order
+          in: query
+          description: 'Array com os ids '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions/{directionId}':
+    put:
+      tags:
+        - recipes
+        - directions
+      summary: 'Atualiza uma direção vinculada a receita.'
+      operationId: UpdateRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome da direção'
+          required: false
+          schema:
+            type: string
+        -
+          name: order
+          in: query
+          description: 'Numero do passo a ser vinculado'
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+        - directions
+      summary: 'Deleta uma direção de uma receita.'
+      operationId: DeleteRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/ingredients/{ingredientId}':
+    post:
+      tags:
+        - recipes
+        - ingredients
+      summary: 'Vincula um ingrediente a uma receita'
+      operationId: StoreRecipesIngredients
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: ingredientId
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: string
+        -
+          name: unit_measure_id
+          in: query
+          description: 'ID da unidade de medida'
+          required: true
+          schema:
+            type: string
+        -
+          name: quantity
+          in: query
+          description: 'Quantidade desse ingrediente'
+          required: false
+          schema:
+            type: string
+        -
+          name: comments
+          in: query
+          description: 'Comentário sobre o ingrediente nessa receita'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+        - ingredients
+      summary: 'Remove um ingrediente da receita'
+      operationId: DeletaRecipesIngredients
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: ingredientId
+          in: path
+          description: 'ID do ingrediente'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/ingredients':
+    get:
+      tags:
+        - recipes
+        - ingredients
+      summary: 'Lista todos os ingredientes da receita'
+      operationId: ShowRecipesIngredients
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions/{directionId}/instructions':
+    get:
+      tags:
+        - recipes
+        - directions
+        - instructions
+      summary: 'Mostra todas as instruções vinculadas a essa direção da receita.'
+      operationId: IngredientsInstructionsStore
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da Receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - recipes
+        - directions
+        - instructions
+      summary: 'Cria uma instrução e vincula a direção da receita.'
+      operationId: IngredientsInstructionsStore
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da Receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+        -
+          name: order
+          in: query
+          description: 'Posição da ordem do item nas instruções'
+          required: true
+          schema:
+            type: string
+        -
+          name: description
+          in: query
+          description: 'Faz o include das relações '
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions/{directionId}/instructions/sort':
+    post:
+      tags:
+        - recipes
+        - directions
+      summary: 'Organiza as instruções da direção.'
+      operationId: ShowRecipeDirection
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID do direção'
+          required: true
+          schema:
+            type: integer
+        -
+          name: order
+          in: query
+          description: 'Array com os ids'
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/directions/{directionId}/instructions/{instructionId}':
+    put:
+      tags:
+        - recipes
+        - directions
+        - instructions
+      summary: 'Cria uma instrução e vincula a direção da receita.'
+      operationId: IngredientsInstructionsUpdate
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da Receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+        -
+          name: instructionid
+          in: path
+          description: 'ID da instrução'
+          required: true
+          schema:
+            type: integer
+        -
+          name: order
+          in: query
+          description: 'Posição da ordem do item nas instruções'
+          required: false
+          schema:
+            type: string
+        -
+          name: description
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+        - directions
+        - instructions
+      summary: 'Cria uma instrução e vincula a direção da receita.'
+      operationId: IngredientsInstructionsUpdate
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da Receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: directionId
+          in: path
+          description: 'ID da direção'
+          required: true
+          schema:
+            type: integer
+        -
+          name: instructionid
+          in: query
+          description: 'ID da instrução'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/occasions/{occasionId}':
+    post:
+      tags:
+        - recipes
+        - occasions
+      summary: 'Vincula uma ocasião a uma receita'
+      operationId: StoreRecipeOccasion
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: occasionId
+          in: path
+          description: 'ID da ocasião'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+        - occasions
+      summary: 'Desvincula uma ocasião a uma receita'
+      operationId: DeleteRecipeOccasion
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: occasionId
+          in: path
+          description: 'ID da ocasião'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/occasions':
+    post:
+      tags:
+        - recipes
+        - occasions
+      summary: 'Vincula várias ocasiões a uma receita'
+      operationId: StoreMultipleRecipeOccasions
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Array com todos os tipos a serem vinculadas.'
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/occasions/':
+    get:
+      tags:
+        - recipes
+        - occasions
+      summary: 'Mostra todas as ocasiões vinculadas a receita'
+      operationId: ShowRecipeOccasions
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: occasionId
+          in: path
+          description: 'ID da ocasião'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/types/{typeId}':
+    get:
+      tags:
+        - recipes
+        - types
+      summary: 'Mostra os tipos de uma receita'
+      operationId: ShowRecipeType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - recipes
+        - types
+      summary: 'Vincula um tipo a uma receita'
+      operationId: StoreRecipeType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: typeId
+          in: path
+          description: 'ID do tipo'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+        - types
+      summary: 'Desvincula um tipo a uma receita'
+      operationId: DeleteRecipeType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: typeId
+          in: path
+          description: 'ID do tipo'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}/types':
+    post:
+      tags:
+        - recipes
+        - types
+      summary: 'Vincula vários tipos a uma receita'
+      operationId: StoreMultipleRecipeType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: values
+          in: query
+          description: 'Array com todos os tipos a serem vinculadas.'
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+      responses:
+        '200':
+          description: ...
+  /recipes:
+    get:
+      tags:
+        - recipes
+      summary: 'Lista todas as Receitas'
+      operationId: ListRecipes
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Inclui todas as coisas q tu precisa'
+          required: false
+          schema:
+            type: object
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - recipes
+      summary: 'Insere uma nova receita'
+      operationId: RecipeStore
+      parameters:
+        -
+          name: difficult_id
+          in: query
+          description: 'ID da dificuldade da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome da receita'
+          required: true
+          schema:
+            type: string
+        -
+          name: description
+          in: query
+          description: 'Descrição da receita'
+          required: true
+          schema:
+            type: string
+        -
+          name: ready_in
+          in: query
+          description: 'Minutos necessários para a receita ficar pronta'
+          required: true
+          schema:
+            type: integer
+        -
+          name: servings
+          in: query
+          description: 'Porções a serem servidas desta mesma receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: fit
+          in: query
+          description: 'Não sei o que isso faz, mas tamo ai'
+          required: true
+          schema:
+            type: boolean
+        -
+          name: movie_url
+          in: query
+          description: 'URL do video da receita'
+          required: true
+          schema:
+            type: string
+        -
+          name: image
+          in: query
+          description: 'Faz o include das relações '
+          required: true
+          schema:
+            type: file
+      responses:
+        '200':
+          description: ...
+  '/recipes/{id}':
+    get:
+      tags:
+        - recipes
+      summary: 'Mostra uma receita as Receitas'
+      operationId: ShowRecipes
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: false
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações '
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    put:
+      tags:
+        - recipes
+      summary: 'Atualiza uma receita'
+      operationId: RecipeUpdate
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: integer
+        -
+          name: difficult_id
+          in: query
+          description: 'ID da dificuldade da receita'
+          required: false
+          schema:
+            type: integer
+        -
+          name: name
+          in: query
+          description: 'Nome da receita'
+          required: false
+          schema:
+            type: string
+        -
+          name: description
+          in: query
+          description: 'Descrição da receita'
+          required: false
+          schema:
+            type: string
+        -
+          name: ready_in
+          in: query
+          description: 'Minutos necessários para a receita ficar pronta'
+          required: false
+          schema:
+            type: integer
+        -
+          name: servings
+          in: query
+          description: 'Porções a serem servidas desta mesma receita'
+          required: false
+          schema:
+            type: integer
+        -
+          name: fit
+          in: query
+          description: 'Não sei o que isso faz, mas tamo ai'
+          required: false
+          schema:
+            type: boolean
+        -
+          name: movie_url
+          in: query
+          description: 'URL do video da receita'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - recipes
+      summary: 'Deleta uma receita'
+      operationId: DeleteRecipe
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID da receita'
+          required: true
+          schema:
+            type: int
+      responses:
+        '200':
+          description: ...
+  /types:
+    get:
+      tags:
+        - types
+      summary: 'Lista todos os tipos de receitas'
+      operationId: ListTypes
+      parameters:
+        -
+          name: includes
+          in: query
+          description: 'Faz o include das relações'
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - types
+      summary: 'Lista todos os tipos de receitas'
+      operationId: StoreTypes
+      parameters:
+        -
+          name: name
+          in: path
+          description: 'Nome do tipo'
+          required: true
+          schema:
+            type: string
+        -
+          name: ask_flavor
+          in: path
+          description: 'Deve perguntar o corte?'
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ...
+  '/types/{id}':
+    put:
+      tags:
+        - types
+      summary: 'Atualiza um tipo de receita'
+      operationId: UpdateType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do tipo'
+          required: true
+          schema:
+            type: string
+        -
+          name: name
+          in: path
+          description: 'Nome do tipo'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    post:
+      tags:
+        - types
+      summary: 'Mostra um tipo de receita'
+      operationId: ShowType
+      parameters:
+        -
+          name: id
+          in: query
+          description: 'ID do tipo'
+          required: false
+          schema:
+            type: string
+        -
+          name: name
+          in: query
+          description: 'Nome do tipo'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+    delete:
+      tags:
+        - types
+      summary: 'Deleta um tipo de receita'
+      operationId: DeleteType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do tipo'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
