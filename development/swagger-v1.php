@@ -3,8 +3,8 @@
 
 /**
  * @OA\Info(
- *   title="E-School API",
- *   version="1.0.0",
+ *   title="BusqueDev API",
+ *   version="0.0.0",
  *   @OA\Contact(
  *     email="hey@danielheart.dev"
  *   )
