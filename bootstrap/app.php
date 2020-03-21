@@ -82,7 +82,7 @@ $app->singleton(
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
-//$app->register(App\Providers\FormRequestServiceProvider::class);
+$app->register(App\Providers\FormRequestServiceProvider::class);
 
 $app->configure('auth');
 
