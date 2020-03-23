@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Users;
 
 use App\Entities\User\User;
 use App\Http\Controllers\ApiController;
+use App\Http\Requests\User\PostUserRequest;
+use App\Http\Requests\User\PutUserRequest;
 use App\Repositories\User\UserRepository;
 use Illuminate\Http\Request;
 
@@ -14,8 +16,8 @@ class UserController extends ApiController
 {
     public function __construct(User $model, UserRepository $repository)
     {
-        $this->middleware('auth',['except' => ['postUser']]);
-        $this->middleware('is-admin',['except' => ['postUser']]);
+//        $this->middleware('auth',['except' => ['postUser']]);
+//        $this->middleware('is-admin',['except' => ['postUser']]);
         $this->model = $model;
         $this->repository = $repository;
     }
@@ -88,12 +90,7 @@ class UserController extends ApiController
      * )
      */
 
-    public function postUser(Request $request){
-        $this->validate($request, [
-            'name' => 'string|min:3|required',
-            'email' => 'email|unique:users|required',
-            'password' => 'string|confirmed|required',
-        ]);
+    public function postUser(PostUserRequest $request){
         return parent::store($request);
     }
 
@@ -120,7 +117,7 @@ class UserController extends ApiController
      * )
      */
 
-    public function getUser(Request $request, int $userId){
+    public function getUser(Request $request, $userId){
         return parent::show($request,$userId);
     }
 
@@ -173,7 +170,13 @@ class UserController extends ApiController
      * )
      */
 
-    public function putUser(Request $request, int $userId){
+    /** Atualização de usuário - Admin Only
+     * @param PutUserRequest $request
+     * @param int $userId
+     * @return \Illuminate\Http\Response
+     */
+
+    public function putUser(PutUserRequest $request, $userId){
         return parent::update($request, $userId);
     }
 

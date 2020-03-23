@@ -4,10 +4,9 @@
 namespace App\Http\Requests\User;
 
 
-
 use App\Http\Requests\FormRequest;
 
-class PostUserRequest extends FormRequest
+class PutUserRequest extends FormRequest
 {
     public function authorize()
     {
@@ -17,9 +16,10 @@ class PostUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string|min:3|required',
-            'email' => 'email|unique:users|required',
-            'password' => 'string|confirmed|required',
+            'name' => 'string|min:3',
+            'email' => 'email|unique:users',
+            'birthdate' => 'date',
+            'password' => 'string'
         ];
     }
 }

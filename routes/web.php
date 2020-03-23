@@ -24,6 +24,12 @@ $router->group(['prefix' => 'auth'], function($router) {
 });
 
 $router->group(['prefix' => 'users'], function($router) {
+
+    $router->group(['prefix' => 'me'], function($router) {
+        $router->get('/','Users\\MeController@getMe');
+        $router->put('/','Users\\MeController@putMe');
+        $router->put('/password','Users\\MeController@putMePassword');
+    });
     $router->get('/','Users\\UserController@getUsers');
     $router->post('/','Users\\UserController@postUser');
     $router->get('/{userId}','Users\\UserController@getUser');
