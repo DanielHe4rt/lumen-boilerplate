@@ -37,10 +37,4 @@ $router->group(['prefix' => 'users'], function($router) {
     $router->delete('/{userId}','Users\\UserController@deleteUser');
 });
 
-$router->group(['prefix' => 'classes'], function($router) {
-    $router->get('/','Classes\\ClassesController@getClasses');
-    $router->post('/','Classes\\ClassesController@postClass');
-    $router->get('/{classId}','Classes\\ClassesController@getClass');
-    $router->put('/{classId}','Classes\\ClassesController@putClass');
-    $router->delete('/{classId}','Classes\\ClassesController@deleteClass');
-});
+$router->get('/genders','Users\\GenderController@getGenders');
