@@ -28,10 +28,7 @@ class ApiController extends BaseController
      */
     protected $query;
 
-    /**
-     * @var FieldManager
-     */
-    protected $fieldManager;
+
 
     /**
      * @var int
@@ -51,26 +48,6 @@ class ApiController extends BaseController
     public function index(Request $request)
     {
         $query = $this->query ?: $this->repository->getModel();
-
-        foreach ($this->fieldManager->filters() as $filter) {
-
-            if (!$request->has($filter['field'])) {
-                continue;
-            }
-
-            if ($filter['type'] == 'equals') {
-                $query = $query->where($filter['field'], $request->get($filter['field']));
-                continue;
-            }
-
-            if ($filter['type'] == 'like') {
-                $text = str_replace(' ', '%', $request->get($filter['field']));
-                $this->query = $this->query->whereRaw(
-                    $filter['field'] . ' like "%' . $text . '%"'
-                );
-                continue;
-            }
-        }
 
         if ($includes = $request->get('includes')) {
             $includes = is_array($includes) ? $includes : explode(',', $includes);
@@ -95,7 +72,6 @@ class ApiController extends BaseController
      */
     public function store(Request $request)
     {
-//        $this->validate($request, $this->fieldManager->store());
         $resource = $this->repository->create($request->all());
         return response()->json($resource);
     }
@@ -125,12 +101,11 @@ class ApiController extends BaseController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, $this->fieldManager->update());
         $resource = $this->repository->update($request->all(), $id);
 
         if ($includes = $request->get('includes')) {
@@ -144,10 +119,10 @@ class ApiController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy( $id)
     {
         $this->repository->delete($id);
         return $this->success();
