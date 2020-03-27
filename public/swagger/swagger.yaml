@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: 'E-School API'
+  title: 'BusqueDev API'
   contact:
     email: hey@danielheart.dev
-  version: 1.0.0
+  version: 0.0.0
 paths:
   /auth/login:
     post:
@@ -40,6 +40,143 @@ paths:
           name: refresh_token
           in: query
           description: 'Token de atualização'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+  /auth/forgot:
+    post:
+      tags:
+        - auth
+      summary: 'Envia e-mail para recuperação de senha do usuário'
+      operationId: AuthForgot
+      parameters:
+        -
+          name: email
+          in: query
+          description: 'E-mail do usuário'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+  /auth/reset:
+    post:
+      tags:
+        - auth
+      summary: 'Reseta a senha do usuário e retorna o bearer para autenticação'
+      operationId: AuthReset
+      parameters:
+        -
+          name: token
+          in: query
+          description: 'Token do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'Senha do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: password_confirmation
+          in: query
+          description: 'Confirmação do usuário'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+  /users/me:
+    get:
+      tags:
+        - users
+        - me
+      summary: 'Retorna as informações do usuário autenticado'
+      operationId: GetMeUser
+      parameters:
+        -
+          name: includes
+          in: path
+          description: 'array de relações (ORM)'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+    put:
+      tags:
+        - users
+        - me
+      summary: 'Atualiza as informações do usuário autenticado'
+      operationId: PutMeUser
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Nome do usuário'
+          required: false
+          schema:
+            type: string
+        -
+          name: birthdate
+          in: query
+          description: 'Data de nascimento do usuário'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ...
+      security:
+        -
+          api_key: []
+  /users/me/password:
+    put:
+      tags:
+        - users
+        - me
+      summary: 'Atualiza a senha do usuário autenticado'
+      operationId: PutMeUserPassword
+      parameters:
+        -
+          name: old_password
+          in: query
+          description: 'Senha antiga do usuário'
+          required: true
+          schema:
+            type: string
+        -
+          name: password
+          in: query
+          description: 'Nova senha'
+          required: true
+          schema:
+            type: string
+        -
+          name: password_confirmation
+          in: query
+          description: 'Confirmação de senha'
           required: true
           schema:
             type: string

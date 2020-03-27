@@ -21,6 +21,9 @@ $router->get('/test','ExampleController@generateUser');
 $router->group(['prefix' => 'auth'], function($router) {
     $router->post('/login','AuthController@postAuthenticate');
     $router->post('/refresh','AuthController@postRefresh');
+    $router->post('/forgot','AuthController@postForgot');
+    $router->get('/reset/{token}','AuthController@getReset');
+    $router->post('/reset','AuthController@postReset');
 });
 
 $router->group(['prefix' => 'users'], function($router) {

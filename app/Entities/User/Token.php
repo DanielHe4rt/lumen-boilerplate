@@ -15,4 +15,6 @@ class Token extends Model
     protected $casts = [
         'used' => 'boolean'
     ];
+
+    public $incrementing = false;
 }
