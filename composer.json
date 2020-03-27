@@ -8,6 +8,8 @@
         "php": "^7.2",
         "ext-json": "*",
         "dusterio/lumen-passport": "^0.2.15",
+        "guzzlehttp/guzzle": "^6.5",
+        "illuminate/mail": "6.x",
         "laravel/lumen-framework": "^6.0",
         "ramsey/uuid": "^3.9",
         "zircote/swagger-php": "^3.0"
